@@ -14,8 +14,10 @@
 
 # define PHONEBOOK_HPP
 
-#include <iostream>
 #include <string>
+
+# define MAX_MEM 8
+# define FORMAT 10
 
 class PhoneBook {
 
@@ -23,22 +25,26 @@ public:
 	PhoneBook(void);
 	~PhoneBook(void);
 	int getIndex(void);
-	void showInfo(void);
-	void setInfo(void);
+	//get first 4th
+	std::string getFn(void);
+	std::string getLn(void);
+	std::string getNn(void);
+	void showInfo(void) const;
+	void setInfo(int index);
 
 private:
 	int			index;
 	std::string	_first_name;
 	std::string	_last_name;
 	std::string	_nickname;
-	std:string	_login;
+	std::string	_login;
 	std::string	_address;
 	std::string	_email;
 	std::string	_phone;
 	std::string	_birthday;
 	std::string	_meal;
-	str::string	_color;
-	str::string	_secret;
+	std::string	_color;
+	std::string	_secret;
 };
 
 

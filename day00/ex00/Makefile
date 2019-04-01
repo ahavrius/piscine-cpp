@@ -10,6 +10,8 @@
 #                                                                              #
 #******************************************************************************#
 
+FLAGS = -Werror -Wall -Wextra
+
 all:
-	clang++ -o megaphone megaphone.cpp
+	clang++ $(FLAGS) -o megaphone megaphone.cpp
 
