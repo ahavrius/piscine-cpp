@@ -1,16 +1,16 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   PhoneBook.cpp                                      :+:      :+:    :+:   //
+//   PhoneBook.class.cpp                                :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: ahavrius <ahavrius@student.unit.ua>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2019/04/01 15:36:45 by ahavrius          #+#    #+#             //
-//   Updated: 2019/04/01 15:36:46 by ahavrius         ###   ########.fr       //
+//   Created: 2019/04/02 10:14:11 by ahavrius          #+#    #+#             //
+//   Updated: 2019/04/02 10:14:18 by ahavrius         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
-#include "PhoneBook.hpp"
+#include "PhoneBook.class.hpp"
 #include <iostream>
 
 PhoneBook::PhoneBook(void) {
@@ -20,15 +20,12 @@ PhoneBook::PhoneBook(void) {
 PhoneBook::~PhoneBook(void) {
     return ;
 }
-
 int         PhoneBook::getIndex(void){
     return this->index;
 }
-
 std::string PhoneBook::getFn(void){
     return this->_first_name;
 }
-
 std::string PhoneBook::getLn(void){
     return this->_last_name;
 }
@@ -38,7 +35,6 @@ std::string PhoneBook::getNn(void){
 
 void PhoneBook::setInfo(int index){
     this->index = index;
-
     std::cout << "first name :";
     std::getline(std::cin, this->_first_name);
     std::cout << "last name :";

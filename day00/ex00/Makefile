@@ -14,4 +14,6 @@ FLAGS = -Werror -Wall -Wextra
 
 all:
 	clang++ $(FLAGS) -o megaphone megaphone.cpp
-
+fclean:
+	rm -f megaphone
+re: fclean all

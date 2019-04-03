@@ -13,7 +13,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include "PhoneBook.hpp"
+#include "PhoneBook.class.hpp"
 
 void showFormat(std::string line){
     if (line.length() > FORMAT)
@@ -41,6 +41,7 @@ void choose(PhoneBook members[])
         showFormat(members[i].getNn());
         std::cout << std::endl;
     }
+    std::cout << "desired index :";
     std::cin >> stream;
     j = stream.c_str()[0] - '0';
     if (0 < j && j <= i && stream.c_str()[1] == '\0')
@@ -58,8 +59,10 @@ int main(void) {
         std::getline(std::cin, line);
         if (line.compare("ADD") == 0 && count == MAX_MEM)
             std::cout << "Too much members" << std::endl;
-        else if (line.compare("ADD") == 0)
-            members[count++].setInfo(count);
+        else if (line.compare("ADD") == 0){
+            members[count].setInfo(count + 1);
+            count++;
+        }
         if (line.compare("SEARCH") == 0)
             choose(members);
         if (line.compare("EXIT") == 0)

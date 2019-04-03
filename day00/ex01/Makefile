@@ -11,10 +11,11 @@
 #******************************************************************************#
 
 NAME = phonebook
-SRC = PhoneBook.cpp main.cpp
+SRC = PhoneBook.class.cpp main.cpp
 FLAGS = -Wall -Werror -Wextra
 
 all:
-	g++ $(FLAGS) -o $(NAME) $(SRC)
-clean:
+	clang++ $(FLAGS) -o $(NAME) $(SRC)
+fclean:
 	rm $(NAME)
+re: fclean all

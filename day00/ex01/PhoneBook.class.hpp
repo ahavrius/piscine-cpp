@@ -1,18 +1,18 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   PhoneBook.hpp                                      :+:      :+:    :+:   //
+//   PhoneBook.class.hpp                                :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: ahavrius <ahavrius@student.unit.ua>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2019/04/01 15:35:40 by ahavrius          #+#    #+#             //
-//   Updated: 2019/04/01 15:35:41 by ahavrius         ###   ########.fr       //
+//   Created: 2019/04/02 10:13:49 by ahavrius          #+#    #+#             //
+//   Updated: 2019/04/02 10:13:51 by ahavrius         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef PHONEBOOK_HPP
+#ifndef PHONEBOOK_CLASS_HPP
 
-# define PHONEBOOK_HPP
+# define PHONEBOOK_CLASS_HPP
 
 #include <string>
 
@@ -20,12 +20,11 @@
 # define FORMAT 10
 
 class PhoneBook {
-
+	
 public:
 	PhoneBook(void);
 	~PhoneBook(void);
 	int getIndex(void);
-	//get first 4th
 	std::string getFn(void);
 	std::string getLn(void);
 	std::string getNn(void);
