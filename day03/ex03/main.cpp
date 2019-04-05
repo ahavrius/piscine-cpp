@@ -28,7 +28,8 @@ int main(void)
     FragTrap unit3;
     NinjaTrap  ninja("*secret*");
 
-
+    unit1.meleeAttack("123");
+    unit2.rangeAttack("32§");
     unit3 = unit1;
     unit3.vaulthunter_dot_exe("eeeex");
     ninja.ninjaShoebox(unit0);

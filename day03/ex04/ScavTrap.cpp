@@ -18,16 +18,17 @@
 ScavTrap::ScavTrap(void): ClapTrap(){
     std::cout << "Constructor without param of ScavTrap" << std::endl;
     level_ = 1;
-    ClapTrap::setAll(100, 100, 50, 50, 20, 15, 3);
+    this->ClapTrap::setAll(100, 100, 50, 50, 20, 15, 3);
 }
 
 ScavTrap::ScavTrap(std::string str): ClapTrap(str){
     std::cout << "Constructor with string of ScavTrap" << std::endl;
     level_ = 1;
-    ClapTrap::setAll(100, 100, 50, 50, 20, 15, 3);
+    this->ClapTrap::setAll(100, 100, 50, 50, 20, 15, 3);
 }
 
 ScavTrap::ScavTrap(ScavTrap const &copy): ClapTrap(copy){
+    *this = copy;
     std::cout << "Constructor copy of ScavTrap" << std::endl;
 }
 ScavTrap& ScavTrap::operator=(ScavTrap const &other){
@@ -49,38 +50,4 @@ void    ScavTrap::challengeNewcomer(std::string const & target){
     std::cout << "Hey, " << target << ", I have a question for you: ";
     int i = (rand() % 5); 
     std::cout << Asks[i] << std::endl;
-}
-
-
-void    ScavTrap::rangeAttack(std::string const & target){
-    std::cout << "Scav ";
-    ClapTrap::rangeAttack(target);
-}
-
-void    ScavTrap::meleeAttack(std::string const & target){
-    std::cout << "Scav ";
-    ClapTrap::meleeAttack(target);
-}
-
-void    ScavTrap::comboAttack(std::string const & target){
-    std::cout << "Scav ";
-    ClapTrap::comboAttack(target);
-}
-void    ScavTrap::flyAttack(std::string const & target){
-    std::cout << "Scav ";
-    ClapTrap::flyAttack(target);
-}
-void    ScavTrap::bombAttack(std::string const & target){
-    std::cout << "Scav ";
-    ClapTrap::bombAttack(target);
-}
-
-void    ScavTrap::takeDamage(unsigned int amount){
-    std::cout << "Scav ";
-    ClapTrap::takeDamage(amount);
-}
-
-void    ScavTrap::beRepaired(unsigned int amount){
-    std::cout << "Scav ";
-    ClapTrap::beRepaired(amount);
 }

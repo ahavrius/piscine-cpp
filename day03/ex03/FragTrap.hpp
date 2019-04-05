@@ -16,14 +16,15 @@
 #include <string>
 #include "ClapTrap.hpp"
 
-class   FragTrap : public ClapTrap{
+class   FragTrap : public virtual ClapTrap{
 public:
     FragTrap(void);
     FragTrap(std::string);
     FragTrap(FragTrap const &);
     ~FragTrap(void);
     FragTrap& operator=(FragTrap const &);
-
+    void    rangeAttack(std::string const & target);
+    
     void    vaulthunter_dot_exe(std::string const & target);
 };
 typedef void (ClapTrap::*frag_attack_t)(std::string const & target);

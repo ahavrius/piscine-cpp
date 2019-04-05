@@ -24,10 +24,10 @@ int main(void)
 {
     srand (time(NULL));
     SuperTrap   unit_1("hey");
-    SuperTrap   unit_2 = unit_1;
+    SuperTrap   unit_2;
 
     unit_1.rangeAttack("tree");
-    unit_2.meleeAttack("TREE");
-
+    unit_1.meleeAttack("TREE");
+    
     return 0;
 }

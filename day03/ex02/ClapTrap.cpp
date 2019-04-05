@@ -64,7 +64,7 @@ ClapTrap::~ClapTrap(void){
 void    ClapTrap::rangeAttack(std::string const & target){
     std::cout << "FR4G-TP " << this->name_;
     std::cout << " attacks " << target;
-    std::cout << " at range, causing " << this->melee_damage_;
+    std::cout << " at range, causing " << this->ranged_damage_;
     std::cout << " points of damage !" << std::endl;
 }
 
@@ -78,19 +78,19 @@ void    ClapTrap::meleeAttack(std::string const & target){
 void    ClapTrap::comboAttack(std::string const & target){
     std::cout << "FR4G-TP " << this->name_;
     std::cout << " attacks " << target;
-    std::cout << "combo, causing " << this->melee_damage_;
+    std::cout << " combo, causing " << (this->melee_damage_ + this->ranged_damage_) / 2;
     std::cout << " points of damage !" << std::endl;
 }
 void    ClapTrap::flyAttack(std::string const & target){
     std::cout << "FR4G-TP " << this->name_;
     std::cout << " attacks " << target;
-    std::cout << " flying, causing " << this->melee_damage_;
+    std::cout << " flying, causing " << this->melee_damage_/3;
     std::cout << " points of damage !" << std::endl;
 }
 void    ClapTrap::bombAttack(std::string const & target){
     std::cout << "FR4G-TP " << this->name_;
     std::cout << " attacks " << target;
-    std::cout << " with bombs, causing " << this->melee_damage_;
+    std::cout << " with bombs, causing " << this->melee_damage_/3;
     std::cout << " points of damage !" << std::endl;
 }
 

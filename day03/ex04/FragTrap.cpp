@@ -26,6 +26,7 @@ FragTrap::FragTrap(std::string str): ClapTrap(str){
     this->ClapTrap::setAll(100, 100, 100, 100, 30, 20, 5);
 }
 FragTrap::FragTrap(FragTrap const &copy): ClapTrap(copy){
+    *this = copy;
     std::cout << "Constructor copy of FragTrap" << std::endl;
 }
 FragTrap& FragTrap::operator=(FragTrap const &other){
@@ -39,7 +40,7 @@ FragTrap::~FragTrap(void){
 }
 
 void    FragTrap::vaulthunter_dot_exe(std::string const & target){
-    static  frag_attack_t Attacks[] = {&FragTrap::rangeAttack, &FragTrap::meleeAttack, &FragTrap::comboAttack, &FragTrap::flyAttack, &FragTrap::bombAttack};
+    static  frag_attack_t Attacks[] = {&ClapTrap::rangeAttack, &ClapTrap::meleeAttack, &ClapTrap::comboAttack, &ClapTrap::flyAttack, &ClapTrap::bombAttack};
         
     if (this->energy_points_ < 25){
         std::cout << "lack of energy" << std::endl;
@@ -55,32 +56,4 @@ void    FragTrap::vaulthunter_dot_exe(std::string const & target){
 void    FragTrap::rangeAttack(std::string const & target){
     std::cout << "Frag ";
     ClapTrap::rangeAttack(target);
-}
-
-void    FragTrap::meleeAttack(std::string const & target){
-    std::cout << "Frag ";
-    ClapTrap::meleeAttack(target);
-}
-
-void    FragTrap::comboAttack(std::string const & target){
-    std::cout << "Frag ";
-    ClapTrap::comboAttack(target);
-}
-void    FragTrap::flyAttack(std::string const & target){
-    std::cout << "Frag ";
-    ClapTrap::flyAttack(target);
-}
-void    FragTrap::bombAttack(std::string const & target){
-    std::cout << "Frag ";
-    ClapTrap::bombAttack(target);
-}
-
-void    FragTrap::takeDamage(unsigned int amount){
-    std::cout << "Frag ";
-    ClapTrap::takeDamage(amount);
-}
-
-void    FragTrap::beRepaired(unsigned int amount){
-    std::cout << "Frag ";
-    ClapTrap::beRepaired(amount);
 }

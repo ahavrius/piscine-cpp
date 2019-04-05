@@ -27,6 +27,7 @@ SuperTrap::SuperTrap(std::string str): FragTrap(str), NinjaTrap(str){
 }
 
 SuperTrap::SuperTrap(SuperTrap const &copy): FragTrap(copy), NinjaTrap(copy){
+    *this = copy;
     std::cout << "Constructor copy of SuperTrap" << std::endl;
 }
 SuperTrap& SuperTrap::operator=(SuperTrap const &other){

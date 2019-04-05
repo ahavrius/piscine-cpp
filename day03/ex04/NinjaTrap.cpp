@@ -30,6 +30,7 @@ NinjaTrap::NinjaTrap(std::string str): ClapTrap(str){
 }
 
 NinjaTrap::NinjaTrap(NinjaTrap const &copy): ClapTrap(copy){
+    *this = copy;
     std::cout << "Constructor copy of NinjaTrap" << std::endl;
 }
 NinjaTrap& NinjaTrap::operator=(NinjaTrap const &other){
@@ -55,36 +56,7 @@ void    NinjaTrap::ninjaShoebox(FragTrap &){
     std::cout << "ninjaShoebox FragTrap" << std::endl;
 }
 
-
-void    NinjaTrap::rangeAttack(std::string const & target){
-    std::cout << "Ninja ";
-    ClapTrap::rangeAttack(target);
-}
-
 void    NinjaTrap::meleeAttack(std::string const & target){
     std::cout << "Ninja ";
     ClapTrap::meleeAttack(target);
-}
-
-void    NinjaTrap::comboAttack(std::string const & target){
-    std::cout << "Ninja ";
-    ClapTrap::comboAttack(target);
-}
-void    NinjaTrap::flyAttack(std::string const & target){
-    std::cout << "Ninja ";
-    ClapTrap::flyAttack(target);
-}
-void    NinjaTrap::bombAttack(std::string const & target){
-    std::cout << "Ninja ";
-    ClapTrap::bombAttack(target);
-}
-
-void    NinjaTrap::takeDamage(unsigned int amount){
-    std::cout << "Ninja ";
-    ClapTrap::takeDamage(amount);
-}
-
-void    NinjaTrap::beRepaired(unsigned int amount){
-    std::cout << "Ninja ";
-    ClapTrap::beRepaired(amount);
 }

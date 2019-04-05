@@ -24,17 +24,10 @@ public:
     ~FragTrap(void);
     FragTrap& operator=(FragTrap const &);
     void    rangeAttack(std::string const & target);
-    void    meleeAttack(std::string const & target);
-    void    comboAttack(std::string const & target); 
-    void    flyAttack(std::string const & target);
-    void    bombAttack(std::string const & target);
     
-    void    takeDamage(unsigned int amount);
-    void    beRepaired(unsigned int amount);
-
     void    vaulthunter_dot_exe(std::string const & target);
 };
-typedef void (FragTrap::*frag_attack_t)(std::string const & target);
+typedef void (ClapTrap::*frag_attack_t)(std::string const & target);
 
 
 #endif

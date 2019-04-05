@@ -26,11 +26,12 @@ FragTrap::FragTrap(std::string str): ClapTrap(str){
     this->ClapTrap::setAll(100, 100, 100, 100, 30, 20, 5);
 }
 FragTrap::FragTrap(FragTrap const &copy): ClapTrap(copy){
+    *this = copy;
     std::cout << "Constructor copy of FragTrap" << std::endl;
 }
 FragTrap& FragTrap::operator=(FragTrap const &other){
     std::cout << "operator =  of FragTrap" << std::endl;
-    this->ClapTrap::operator= (other);
+    ClapTrap::operator= (other);
 
     return *this;    
 }
@@ -50,4 +51,9 @@ void    FragTrap::vaulthunter_dot_exe(std::string const & target){
     this->energy_points_ -= 25;
     (this->*Attacks[i])(target);
 
+}
+
+void    FragTrap::rangeAttack(std::string const & target){
+    std::cout << "Frag ";
+    ClapTrap::rangeAttack(target);
 }

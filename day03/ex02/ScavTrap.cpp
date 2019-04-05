@@ -18,21 +18,22 @@
 ScavTrap::ScavTrap(void): ClapTrap(){
     std::cout << "Constructor without param of ScavTrap" << std::endl;
     level_ = 1;
-    ClapTrap::setAll(100, 100, 50, 50, 20, 15, 3);
+    this->ClapTrap::setAll(100, 100, 50, 50, 20, 15, 3);
 }
 
 ScavTrap::ScavTrap(std::string str): ClapTrap(str){
     std::cout << "Constructor with string of ScavTrap" << std::endl;
     level_ = 1;
-    ClapTrap::setAll(100, 100, 50, 50, 20, 15, 3);
+    this->ClapTrap::setAll(100, 100, 50, 50, 20, 15, 3);
 }
 
 ScavTrap::ScavTrap(ScavTrap const &copy): ClapTrap(copy){
+    *this = copy;
     std::cout << "Constructor copy of ScavTrap" << std::endl;
 }
 ScavTrap& ScavTrap::operator=(ScavTrap const &other){
     std::cout << "operator =    Scav" << std::endl;
-    this->ClapTrap::operator= (other);
+    ClapTrap::operator= (other);
 
     return *this;    
 }

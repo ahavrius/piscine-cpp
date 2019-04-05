@@ -19,15 +19,18 @@
 
 NinjaTrap::NinjaTrap(void): ClapTrap(){
     std::cout << "Constructor without param of NinjaTrap" << std::endl;
+    level_ = 1;
     ClapTrap::setAll(60, 60, 120, 120, 60, 5, 0);
 }
 
 NinjaTrap::NinjaTrap(std::string str): ClapTrap(str){
     std::cout << "Constructor with string of NinjaTrap" << std::endl;
+    level_ = 1;
     ClapTrap::setAll(60, 60, 120, 120, 60, 5, 0);
 }
 
 NinjaTrap::NinjaTrap(NinjaTrap const &copy): ClapTrap(copy){
+    *this = copy;
     std::cout << "Constructor copy of NinjaTrap" << std::endl;
 }
 NinjaTrap& NinjaTrap::operator=(NinjaTrap const &other){
@@ -51,4 +54,9 @@ void    NinjaTrap::ninjaShoebox(ScavTrap &){
 }
 void    NinjaTrap::ninjaShoebox(FragTrap &){
     std::cout << "ninjaShoebox FragTrap" << std::endl;
+}
+
+void    NinjaTrap::meleeAttack(std::string const & target){
+    std::cout << "Ninja ";
+    ClapTrap::meleeAttack(target);
 }
