@@ -15,12 +15,29 @@
 #include "ISpaceMarine.hpp"
 #include "ISquad.hpp"
 
-class Squad: public ISquad{
+typedef struct              marinelist_s
+{
+	ISpaceMarine 			*marine;
+	struct marinelist_s		*next;
+}				            marinelist_t;
 
 
+class Squad: virtual public ISquad{
+    public:
+        Squad(void);
+        Squad(Squad const & copy);
+        ~Squad(void);
+        Squad& operator=(Squad const & copy);
+        int getCount() const;
+        ISpaceMarine* getUnit(int) const;
+        int push(ISpaceMarine*);
 
-    
+    private:
+        bool    isUnic(ISpaceMarine*) const;
+        void    deleteAll();
+        int count_;
+        marinelist_t *head_;
+        marinelist_t *tail_;
 };
-
 
 #endif

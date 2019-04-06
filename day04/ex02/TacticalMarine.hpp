@@ -14,12 +14,19 @@
 #define TACTICAMARINE_HPP
 
 #include "ISpaceMarine.hpp"
-class TacticalMarine: public ISpaceMarine{
 
+class TacticalMarine: virtual public ISpaceMarine{
+    public:
+        TacticalMarine(void);
+        TacticalMarine(TacticalMarine const & copy);
+        ~TacticalMarine(void);
+        TacticalMarine& operator=(TacticalMarine const & copy);
 
+        ISpaceMarine* clone() const;
+        virtual void battleCry() const;
+        virtual void rangedAttack() const;
+        virtual void meleeAttack() const;
 
 };
-
-
 
 #endif

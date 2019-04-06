@@ -22,7 +22,7 @@ Victim::Victim(Victim const &other){
     std::cout << "Some random victim called " << this->name_ << " just popped !" << std::endl;
 }
 Victim::~Victim(void){
-    std::cout << "Victim " << this->name_ << "just died for no apparent reason !" << std::endl;
+    std::cout << "Victim " << this->name_ << " just died for no apparent reason !" << std::endl;
 }
 
 Victim& Victim::operator=(Victim const &other){
