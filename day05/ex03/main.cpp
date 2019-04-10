@@ -23,7 +23,7 @@
 int main(){
     srand (time(NULL));
 
-    Bureaucrat ted("Ted", 2);
+    Bureaucrat ted("Ted", 60);
     Intern  someRandomIntern;
     Form*   form1;
     Form*   form2;

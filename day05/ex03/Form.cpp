@@ -68,3 +68,50 @@ void    Form::beSigned(Bureaucrat const & guy){
         throw Form::GradeTooLowException();
     _signed = true;
 }
+
+/**//**//**//**/
+
+Form::ExecuteUnsignedException::ExecuteUnsignedException(void) {}
+
+Form::ExecuteUnsignedException::ExecuteUnsignedException(ExecuteUnsignedException const &obj){
+	*this = obj;}
+
+Form::ExecuteUnsignedException::~ExecuteUnsignedException(void) throw() {}
+
+Form::ExecuteUnsignedException &Form::ExecuteUnsignedException::operator=(ExecuteUnsignedException const &) {
+	return (*this);}
+
+const char* Form::ExecuteUnsignedException::what() const throw()
+{
+	return ("executing unknown form");
+}
+
+Form::GradeTooHighException::GradeTooHighException(void) {}
+
+Form::GradeTooHighException::GradeTooHighException(GradeTooHighException const &obj){
+	*this = obj;}
+
+Form::GradeTooHighException::~GradeTooHighException(void) throw() {}
+
+Form::GradeTooHighException &Form::GradeTooHighException::operator=(GradeTooHighException const &) {
+	return (*this);}
+
+const char* Form::GradeTooHighException::what() const throw()
+{
+	return ("grade too high (<1)");
+}
+
+Form::GradeTooLowException::GradeTooLowException(void){}
+
+Form::GradeTooLowException::GradeTooLowException(GradeTooLowException const &obj){
+	*this = obj;}
+
+Form::GradeTooLowException::~GradeTooLowException(void) throw() {}
+
+Form::GradeTooLowException &Form::GradeTooLowException::operator=(GradeTooLowException const &) {
+	return (*this);}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+	return ("grade too low (>150)");
+}

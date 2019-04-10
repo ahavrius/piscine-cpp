@@ -13,7 +13,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include "string"
+#include <string>
 
 class Bureaucrat{
     std::string const _name;
@@ -31,19 +31,28 @@ public:
 
     void    incrementGrade();
     void    decrementGrade();
+    class GradeTooHighException : public std::exception
+		{
+			public:
+				
+				GradeTooHighException(void);
+				GradeTooHighException(GradeTooHighException const &obj);
+				virtual ~GradeTooHighException(void) throw();
+				GradeTooHighException &operator=(GradeTooHighException const &r);
+				virtual const char* what() const throw();
+		};
 
-    class GradeTooHighException: public std::exception{
-        public:
-            virtual const char* what() const throw(){
-                return ("grade is too hight");
-            }
-    };
-    class GradeTooLowException: public std::exception{
-        public:
-            virtual const char* what() const throw(){
-                return ("grade is too low");
-            }
-    };
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				
+				GradeTooLowException(void);
+				GradeTooLowException(GradeTooLowException const &obj);
+				virtual ~GradeTooLowException(void) throw();
+				GradeTooLowException &operator=(GradeTooLowException const &r);
+				virtual const char* what() const throw();
+			
+		};
 
 };
 

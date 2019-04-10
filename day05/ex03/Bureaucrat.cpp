@@ -78,3 +78,35 @@ void        Bureaucrat::executeForm(Form const & form){
     }
 
 }
+
+/**//**//**//**/
+
+Bureaucrat::GradeTooHighException::GradeTooHighException(void) {}
+
+Bureaucrat::GradeTooHighException::GradeTooHighException(GradeTooHighException const &obj){
+	*this = obj;}
+
+Bureaucrat::GradeTooHighException::~GradeTooHighException(void) throw() {}
+
+Bureaucrat::GradeTooHighException &Bureaucrat::GradeTooHighException::operator=(GradeTooHighException const &) {
+	return (*this);}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("grade too high (<1)");
+}
+
+Bureaucrat::GradeTooLowException::GradeTooLowException(void){}
+
+Bureaucrat::GradeTooLowException::GradeTooLowException(GradeTooLowException const &obj){
+	*this = obj;}
+
+Bureaucrat::GradeTooLowException::~GradeTooLowException(void) throw() {}
+
+Bureaucrat::GradeTooLowException &Bureaucrat::GradeTooLowException::operator=(GradeTooLowException const &) {
+	return (*this);}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("grade too low (>150)");
+}

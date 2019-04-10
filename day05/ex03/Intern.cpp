@@ -33,7 +33,7 @@ Intern& Intern::operator=(Intern const &){
 Form * Intern::makeForm(std::string form, std::string name){
     if (form != "robotomy request" && form != "presidential pardon" && form != "shrubbery creation")
     {
-        std::cout << "Itern failed to create " << form << std::endl;
+        std::cout << "Intern failed to create " << form << std::endl;
         return NULL;
     }
     std::cout << "Itern creates " << form << std::endl;

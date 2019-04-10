@@ -1,34 +1,28 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   main.cpp                                           :+:      :+:    :+:   //
+//   A.hpp                                              :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: ahavrius <ahavrius@student.unit.ua>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2019/04/09 17:32:48 by ahavrius          #+#    #+#             //
-//   Updated: 2019/04/09 17:32:48 by ahavrius         ###   ########.fr       //
+//   Created: 2019/04/10 21:57:24 by ahavrius          #+#    #+#             //
+//   Updated: 2019/04/10 21:57:25 by ahavrius         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
-#include <iostream>
+#ifndef A_HPP
+#define A_HPP
+#include "Base.hpp"
 
-int main(){
+class A : public Base{
 
-    Bureaucrat ted("Ted", 2);
-    Form form1("first", 1, 30);
-    ted.signForm(form1);
+public:
+    A();
+    A(A const &);
+    ~A();
+    A& operator=(A const&);
 
-    std::cout << "------------------" << std::endl;
-    try{
-        Form form2("second", 76, -32);
-    }
-    catch (std::exception &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+    A * generate(void);
+};
 
-
-    return 0;
-}
+#endif

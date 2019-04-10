@@ -49,6 +49,39 @@ std::string const Bureaucrat::getName() const{
 }
 
 std::ostream & operator<<(std::ostream &o, const Bureaucrat &other){
-    o << other.getName() << ", bureaucrat grade " << other.getGrade() << std::endl;
+    o << other.getName() << ", bureaucrat grade " << other.getGrade();
     return o;
+}
+
+/**//**//**//**/
+
+Bureaucrat::GradeTooHighException::GradeTooHighException(void) {}
+
+Bureaucrat::GradeTooHighException::GradeTooHighException(GradeTooHighException const &obj){
+	*this = obj;}
+
+Bureaucrat::GradeTooHighException::~GradeTooHighException(void) throw() {}
+
+Bureaucrat::GradeTooHighException &Bureaucrat::GradeTooHighException::operator=(GradeTooHighException const &) {
+	return (*this);}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("error: grade too high (<1)");
+}
+
+
+Bureaucrat::GradeTooLowException::GradeTooLowException(void){}
+
+Bureaucrat::GradeTooLowException::GradeTooLowException(GradeTooLowException const &obj){
+	*this = obj;}
+
+Bureaucrat::GradeTooLowException::~GradeTooLowException(void) throw() {}
+
+Bureaucrat::GradeTooLowException &Bureaucrat::GradeTooLowException::operator=(GradeTooLowException const &) {
+	return (*this);}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("error: grade too low (>150)");
 }
