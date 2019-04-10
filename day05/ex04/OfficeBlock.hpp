@@ -15,7 +15,6 @@
 
 #include "Intern.hpp"
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 #include <string>
 
 class OfficeBlock{
@@ -23,7 +22,7 @@ class OfficeBlock{
     Bureaucrat* _signer;
     Bureaucrat* _executer;
 
-    OfficeBlock(Intern const & copy);
+    OfficeBlock(OfficeBlock const & copy);
     OfficeBlock& operator=(OfficeBlock const & copy);
 
 public:
@@ -31,37 +30,49 @@ public:
     OfficeBlock(Intern *, Bureaucrat *, Bureaucrat *);
     ~OfficeBlock();
     
-    class BolckLowGradeException: public std::exception{
-        public:
-            virtual const char* what() const throw(){
-                return ("grade is too low ! ! !");
-            }
-    };
+    class NoInternException : public std::exception
+		{
+			public:
+				
+				NoInternException(void);
+				NoInternException(NoInternException const &obj);
+				virtual ~NoInternException(void) throw();
+				NoInternException &operator=(NoInternException const &r);
+				virtual const char* what() const throw();
+		};
 
-    class UnknownFormException: public std::exception{
-        public:
-            virtual const char* what() const throw(){
-                return ("unknown form");
-            }
-    };
-    class NoInternException: public std::exception{
-        public:
-            virtual const char* what() const throw(){
-                return ("no intern");
-            }
-    };
-    class NoSignerException: public std::exception{
-        public:
-            virtual const char* what() const throw(){
-                return ("no signer bureaucrat");
-            }
-    };
-    class NoExecuterException: public std::exception{
-        public:
-            virtual const char* what() const throw(){
-                return ("no executer bureaucrat");
-            }
-    };
+		class NoSignerException : public std::exception
+		{
+			public:
+				
+				NoSignerException(void);
+				NoSignerException(NoSignerException const &obj);
+				virtual ~NoSignerException(void) throw();
+				NoSignerException &operator=(NoSignerException const &r);
+				virtual const char* what() const throw();
+		};
+
+		class NoExecuterException : public std::exception
+		{
+			public:
+				
+				NoExecuterException(void);
+				NoExecuterException(NoExecuterException const &obj);
+				virtual ~NoExecuterException(void) throw();
+				NoExecuterException &operator=(NoExecuterException const &r);
+				virtual const char* what() const throw();
+		};
+
+        class NoFormException : public std::exception
+		{
+			public:
+				
+				NoFormException(void);
+				NoFormException(NoFormException const &obj);
+				virtual ~NoFormException(void) throw();
+				NoFormException &operator=(NoFormException const &r);
+				virtual const char* what() const throw();
+		};
 
     void    setIntern(Intern &);
     void    setSigner(Bureaucrat &);

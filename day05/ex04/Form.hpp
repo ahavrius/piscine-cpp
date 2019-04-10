@@ -43,26 +43,37 @@ public:
     void        beSigned(Bureaucrat const &);
     void        execute(Bureaucrat const & executor) const;
 
-    class ExecuteUnsignedException: public std::exception{
-        public:
-            virtual const char* what() const throw(){
-                return ("executing unsigned form");
-            }
-    };
-
-    class GradeTooHighException: public std::exception{
-        public:
-            virtual const char* what() const throw(){
-                return ("grade is too hight");
-            }
-    };
-    class GradeTooLowException: public std::exception{
-        public:
-            virtual const char* what() const throw(){
-                return ("grade is too low");
-            }
-    };
-
+    class ExecuteUnsignedException : public std::exception
+		{
+			public:
+				
+				ExecuteUnsignedException(void);
+				ExecuteUnsignedException(ExecuteUnsignedException const &obj);
+				virtual ~ExecuteUnsignedException(void) throw();
+				ExecuteUnsignedException &operator=(ExecuteUnsignedException const &r);
+				virtual const char* what() const throw();
+		};
+    class GradeTooHighException : public std::exception
+		{
+			public:
+				
+				GradeTooHighException(void);
+				GradeTooHighException(GradeTooHighException const &obj);
+				virtual ~GradeTooHighException(void) throw();
+				GradeTooHighException &operator=(GradeTooHighException const &r);
+				virtual const char* what() const throw();
+		};
+	class GradeTooLowException : public std::exception
+		{
+			public:
+				
+				GradeTooLowException(void);
+				GradeTooLowException(GradeTooLowException const &obj);
+				virtual ~GradeTooLowException(void) throw();
+				GradeTooLowException &operator=(GradeTooLowException const &r);
+				virtual const char* what() const throw();
+			
+		};
 };
 
 std::ostream & operator<<(std::ostream &o, const Form &);

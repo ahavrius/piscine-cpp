@@ -17,8 +17,7 @@
 
 OfficeBlock::OfficeBlock(void): _intern(NULL), _signer(NULL), _executer(NULL){}
 
-Bureaucrat::Bureaucrat(Bureaucrat const &){}
-
+OfficeBlock::OfficeBlock(OfficeBlock const &){}
 
 OfficeBlock::OfficeBlock(Intern *intern, Bureaucrat *bureau_sign, Bureaucrat *bureau_execute):
 _intern(intern), _signer(bureau_sign), _executer(bureau_execute){}
@@ -50,7 +49,7 @@ OfficeBlock& OfficeBlock::operator=(OfficeBlock const &){
 		if (!this->_executer)
 			throw OfficeBlock::NoExecuterException();
         if (!(form = _intern->makeForm(form_name, name)))
-            throw OfficeBlock::UnknownFormException();
+            throw OfficeBlock::NoFormException();
         try
         {
             _signer->signForm(*form);
@@ -60,6 +59,65 @@ OfficeBlock& OfficeBlock::operator=(OfficeBlock const &){
         catch(const std::exception& e)
         {
             delete form;
-            throw OfficeBlock::BolckLowGradeException();
+            throw Form::GradeTooLowException();
         }
     }
+
+
+/**//**//**//**//**//**/
+
+OfficeBlock::NoFormException::NoFormException(void) {}
+
+OfficeBlock::NoFormException::NoFormException(NoFormException const &obj){
+	*this = obj;}
+
+OfficeBlock::NoFormException::~NoFormException(void) throw() {}
+
+OfficeBlock::NoFormException &OfficeBlock::NoFormException::operator=(NoFormException const &) {
+	return (*this);}
+
+const char* OfficeBlock::NoFormException::what() const throw()
+{
+	return ("unknown form");
+}
+
+
+OfficeBlock::NoInternException::NoInternException(void){}
+
+OfficeBlock::NoInternException::NoInternException(NoInternException const &){}
+
+OfficeBlock::NoInternException::~NoInternException(void) throw(){}
+
+OfficeBlock::NoInternException &OfficeBlock::NoInternException::operator=(NoInternException const &) {
+	return (*this);
+}
+const char* OfficeBlock::NoInternException::what() const throw()
+{
+	return ("OfficeBlock error: no intern presents");
+}
+OfficeBlock::NoSignerException::NoSignerException(void){}
+
+OfficeBlock::NoSignerException::NoSignerException(NoSignerException const &){}
+
+OfficeBlock::NoSignerException::~NoSignerException(void) throw(){}
+
+OfficeBlock::NoSignerException &OfficeBlock::NoSignerException::operator=(NoSignerException const &){
+	return (*this);
+}
+const char* OfficeBlock::NoSignerException::what() const throw(){
+	return ("OfficeBlock error: no signer Presents");
+}
+OfficeBlock::NoExecuterException::NoExecuterException(void){}
+
+OfficeBlock::NoExecuterException::NoExecuterException(NoExecuterException const &){}
+
+OfficeBlock::NoExecuterException::~NoExecuterException(void) throw(){}
+
+OfficeBlock::NoExecuterException &OfficeBlock::NoExecuterException::operator=(NoExecuterException const &){
+	return (*this);
+}
+
+const char* OfficeBlock::NoExecuterException::what() const throw()
+{
+	return ("OfficeBlock error: no interns presents");
+}

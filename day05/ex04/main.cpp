@@ -29,26 +29,14 @@ int main() {
         ob.setIntern(idiotOne);
         ob.setSigner(bob);
         ob.setExecutor(hermes);
+
+        OfficeBlock obb;
+
     try
     {
-    ob.doBureaucracy("mutant pig termination", "Pigley");
-    }
-    catch (OfficeBlock::NoInternException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (OfficeBlock::NoSignerException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (OfficeBlock::NoExecuterException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (OfficeBlock::BolckLowGradeException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+        ob.doBureaucracy("mutant pig termination", "Pigley");
+        obb.doBureaucracy("presidential pardon", "sas");
+    }	
     catch (std::exception & e) {
         std::cout << e.what() << std::endl;
     }
